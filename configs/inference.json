@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "video": {
+    "height": 480,
+    "width": 832,
+    "fps": 16
+  },
+  "models": [
+    {
+      "id": "hf",
+      "adapter": "hf",
+      "source_root": "engines/hf",
+      "config_path": "engines/hf/configs/hf.yaml",
+      "checkpoint_path": "checkpoints/hf.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 12,
+        "sink_latents": 3,
+        "train_latents": 21,
+        "position_mode": "top_aligned"
+      },
+      "long_source_root": "engines/sgf"
+    },
+    {
+      "id": "hf_long",
+      "adapter": "hf",
+      "source_root": "engines/sgf",
+      "long_source_root": "engines/sgf",
+      "config_path": "configs/hf_long_inference.yaml",
+      "checkpoint_path": "checkpoints/hf_long.pt",
+      "weight_key": "generator_ema",
+      "config_overrides": {
+        "model_kwargs": {
+          "local_attn_size": 9,
+          "sink_size": 3
+        }
+      },
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 12,
+        "sink_latents": 3,
+        "train_latents": 12,
+        "position_mode": "contiguous"
+      },
+      "inference_policy_suites": [
+        "short",
+        "motion",
+        "long"
+      ]
+    },
+    {
+      "id": "self_forcing",
+      "adapter": "self_forcing",
+      "source_root": "engines/hf",
+      "config_path": "engines/hf/configs/cf_inference.yaml",
+      "checkpoint_path": "checkpoints/self_forcing.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 21,
+        "sink_latents": 3,
+        "train_latents": 21,
+        "position_mode": "top_aligned"
+      },
+      "long_source_root": "engines/sgf"
+    },
+    {
+      "id": "causal_forcing",
+      "adapter": "cf",
+      "source_root": "engines/hf",
+      "config_path": "engines/hf/configs/cf_inference.yaml",
+      "checkpoint_path": "checkpoints/causal_forcing.pt",
+      "weight_key": "generator",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 21,
+        "sink_latents": 3,
+        "train_latents": 21,
+        "position_mode": "top_aligned"
+      },
+      "long_source_root": "engines/sgf"
+    },
+    {
+      "id": "causvid",
+      "adapter": "causvid",
+      "source_root": "engines/causvid",
+      "config_path": "engines/causvid/configs/causvid.yaml",
+      "checkpoint_path": "checkpoints/causvid.pt",
+      "weight_key": "generator",
+      "long_policy": {
+        "kind": "native_overlap_extension",
+        "overlap_latents": 3
+      }
+    },
+    {
+      "id": "raven",
+      "adapter": "raven",
+      "source_root": "engines/raven",
+      "config_path": "engines/raven/configs/raven.yaml",
+      "checkpoint_path": "checkpoints/raven.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 21,
+        "sink_latents": 3,
+        "train_latents": 21,
+        "position_mode": "top_aligned"
+      },
+      "long_source_root": "engines/sgf"
+    },
+    {
+      "id": "reward_forcing",
+      "adapter": "reward_forcing",
+      "source_root": "engines/reward",
+      "config_path": "engines/reward/configs/reward.yaml",
+      "checkpoint_path": "checkpoints/reward_forcing.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "ema_sink",
+        "cache_latents": 9,
+        "sink_latents": 3,
+        "decay": 0.999
+      }
+    },
+    {
+      "id": "sgf",
+      "adapter": "sgf",
+      "source_root": "engines/sgf",
+      "config_path": "engines/sgf/configs/sgf.yaml",
+      "checkpoint_path": "checkpoints/sgf.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 12,
+        "sink_latents": 3,
+        "train_latents": 21,
+        "position_mode": "top_aligned"
+      }
+    },
+    {
+      "id": "sgf_plus",
+      "adapter": "sgf_plus",
+      "source_root": "engines/sgf_plus",
+      "config_path": "engines/sgf_plus/configs/sgf_plus.yaml",
+      "checkpoint_path": "checkpoints/sgf_plus.pt",
+      "weight_key": "generator_ema",
+      "long_policy": {
+        "kind": "relative_rope_fifo",
+        "cache_latents": 12,
+        "sink_latents": 3,
+        "train_latents": 12,
+        "position_mode": "contiguous"
+      }
+    }
+  ]
+}

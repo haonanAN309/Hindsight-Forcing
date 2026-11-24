@@ -1,0 +1,11 @@
+# HF Long inference only. Cache and RoPE policies are in inference.json.
+denoising_step_list: [1000, 750, 500, 250]
+warp_denoising_step: true
+num_frame_per_block: 3
+independent_first_frame: false
+context_noise: 0
+mixed_precision: true
+model_kwargs:
+  timestep_shift: 5.0
+  local_attn_size: 9
+  sink_size: 3

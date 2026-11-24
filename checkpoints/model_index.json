@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "weights_included": false,
+  "checkpoints": [
+    {
+      "id": "hf",
+      "name": "Hindsight Forcing",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/thu-ml/Causal-Forcing",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/hf.pt",
+      "student_updates": 150,
+      "global_step": 750,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/hf.pt",
+          "bytes": 5676283989,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": true,
+          "contains_memory_parameters": false,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/hf.pt",
+          "sha256": "5cf3d699554db7db3e04fb36625c526b089aa9babe75cb243c1c3c658d3a50a1"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/hf/model.pt",
+          "bytes": 5676325089,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": null,
+          "uploaded": false
+        }
+      ],
+      "variant": {
+        "selected_step_sampling": "shared_across_ranks",
+        "history_source": "full_rollout",
+        "bridge_scale": 1.0,
+        "short_cache_latent_frames": 21
+      }
+    },
+    {
+      "id": "hf_long",
+      "name": "Hindsight Forcing Long",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/thu-ml/Causal-Forcing",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/hf_long.pt",
+      "student_updates": 150,
+      "global_step": 750,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/hf_long.pt",
+          "bytes": 5676249237,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/hf_long.pt",
+          "sha256": "8ab88cfe146d6f9a3ed96de33897ca2155e5ebfa6265ef8d40521b55164be8ed"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/hf_long/model.pt",
+          "bytes": 5676325089,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": null,
+          "uploaded": false
+        }
+      ],
+      "variant": {
+        "selected_step_sampling": "independent_per_rank",
+        "long_cache_latent_frames": 12,
+        "long_rope": "contiguous",
+        "rope_span_latent_frames": 12
+      }
+    },
+    {
+      "id": "causvid",
+      "name": "CausVid",
+      "origin": "official",
+      "upstream_code": "https://github.com/tianweiy/CausVid",
+      "download_url": "https://huggingface.co/tianweiy/CausVid/tree/main/autoregressive_checkpoint_warp_4step_cfg2",
+      "student_updates": null,
+      "global_step": null,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/causvid.pt",
+          "bytes": 5676203690,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false
+        }
+      ]
+    },
+    {
+      "id": "self_forcing",
+      "name": "Self Forcing",
+      "origin": "official",
+      "upstream_code": "https://github.com/guandeh17/Self-Forcing",
+      "download_url": "https://huggingface.co/gdhe17/Self-Forcing/blob/main/checkpoints/self_forcing_dmd.pt",
+      "student_updates": null,
+      "global_step": null,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/self_forcing.pt",
+          "bytes": 5676252553,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false
+        }
+      ]
+    },
+    {
+      "id": "causal_forcing",
+      "name": "Causal Forcing",
+      "origin": "official",
+      "upstream_code": "https://github.com/thu-ml/Causal-Forcing",
+      "download_url": "https://huggingface.co/zhuhz22/Causal-Forcing/blob/main/chunkwise/causal_forcing.pt",
+      "student_updates": null,
+      "global_step": null,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/causal_forcing.pt",
+          "bytes": 5676282643,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false
+        }
+      ]
+    },
+    {
+      "id": "reward_forcing",
+      "name": "Reward Forcing",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/JaydenLyh/Reward-Forcing",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/reward_forcing.pt",
+      "student_updates": 150,
+      "global_step": 750,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/reward_forcing.pt",
+          "bytes": 5676283989,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": true,
+          "contains_memory_parameters": false,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/reward_forcing.pt",
+          "sha256": "85020ae9e2de5a5f27d7095759bdc7486d5b62ecde6c42a0bd00870b607e2c69"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/reward_forcing/model.pt",
+          "bytes": 5676325089,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": null,
+          "uploaded": false
+        }
+      ]
+    },
+    {
+      "id": "raven",
+      "name": "RAVEN without CM-GRPO",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/mvp-ai-lab/RAVEN",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/raven.pt",
+      "student_updates": 150,
+      "global_step": 300,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/raven.pt",
+          "bytes": 5676283989,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": true,
+          "contains_memory_parameters": false,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/raven.pt",
+          "sha256": "ee13fe35488e088579184ca90a06fa54d139e94245f993060bcb09d9059b7c8d"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/raven/model.pt",
+          "bytes": 5676325089,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": null,
+          "uploaded": false
+        }
+      ],
+      "variant": {
+        "cm_grpo": false
+      }
+    },
+    {
+      "id": "sgf",
+      "name": "Self Gradient Forcing",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/zhuang2002/Self_Gradient_Forcing",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/sgf.pt",
+      "student_updates": 150,
+      "global_step": 750,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/sgf.pt",
+          "bytes": 5676328405,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/sgf.pt",
+          "sha256": "0804d2df83be8761412f71b2f32801600c7bd639be52c9ec8106f8b094b784a5"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/sgf/model.pt",
+          "bytes": 5676325089,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": false,
+          "download_url": null,
+          "uploaded": false
+        }
+      ]
+    },
+    {
+      "id": "sgf_plus",
+      "name": "Self Gradient Forcing Plus",
+      "origin": "locally_retrained",
+      "upstream_code": "https://github.com/Zihan-Su/Self_Gradient_Forcing_Plus",
+      "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/sgf_plus.pt",
+      "student_updates": 150,
+      "global_step": 750,
+      "implementation_in_scope": true,
+      "files": [
+        {
+          "role": "evaluation",
+          "path": "checkpoints/sgf_plus.pt",
+          "bytes": 11352615746,
+          "state_dict_key": "generator_ema",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": true,
+          "download_url": "https://huggingface.co/NathanAN123/Hindsight_Forcing/resolve/main/sgf_plus.pt",
+          "sha256": "726836d2d2851209d12ceb35f3d32f57fd8f13c3d704c449adef2e0347d951d2"
+        },
+        {
+          "role": "ordinary",
+          "path": "checkpoints/sgf_plus/model.pt",
+          "bytes": 11352609130,
+          "state_dict_key": "generator",
+          "requires_fsdp_prefix_normalization": false,
+          "contains_memory_parameters": true,
+          "download_url": null,
+          "uploaded": false
+        }
+      ],
+      "variant": {
+        "separate_context_writer": true,
+        "both_parameter_sets_in_each_file": true
+      }
+    }
+  ],
+  "initialization": {
+    "name": "CF S2 causal ODE",
+    "public_path": "checkpoints/initialization/causal_ode.pt",
+    "official_url": "https://huggingface.co/zhuhz22/Causal-Forcing/blob/main/chunkwise/causal_ode.pt",
+    "bytes": 5676282643
+  },
+  "description": "Checkpoint catalog for paper evaluation; weight files are not bundled."
+}

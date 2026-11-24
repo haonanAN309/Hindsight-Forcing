@@ -1,0 +1,30 @@
+# Install a CUDA-compatible PyTorch build for your system before the remaining
+# packages. FlashAttention is built separately; see docs/DEPENDENCIES.md.
+torch==2.6.0
+torchvision==0.21.0
+diffusers==0.31.0
+transformers==4.49.0
+tokenizers>=0.21,<0.22
+accelerate>=1.1.1,<2
+numpy==1.24.4
+opencv-python==4.11.0.86
+av==13.1.0
+huggingface_hub==0.36.2
+safetensors
+Pillow
+omegaconf>=2.3,<3
+PyYAML
+einops
+easydict
+ftfy
+sentencepiece
+tqdm
+imageio
+imageio-ffmpeg
+wandb
+tensorboard
+lmdb
+packaging
+ninja
+# Reward Forcing's Qwen2-VL reward adapter uses this PEFT API.
+peft==0.14.0

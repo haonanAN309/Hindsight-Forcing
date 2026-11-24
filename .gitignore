@@ -1,0 +1,35 @@
+# User-provided assets and generated outputs
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.ckpt
+*.mp4
+*.mov
+*.zip
+*.tar
+*.tar.gz
+*.lmdb
+*.mdb
+*.log
+*.tfevents.*
+wan_models/
+data/
+prompts/
+outputs/
+logs/
+wandb/
+checkpoints/*/
+# Environment and private operational files
+.env
+.env.*
+.venv/
+venv/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+private/
+*.private.*
+.DS_Store
